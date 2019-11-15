@@ -29,8 +29,8 @@ public class Inicio extends AppCompatActivity {
     }
 
     public void numerohimno(View view){
-       //Intent i  = new Intent(this, NumeroHimno.class);
-       // startActivity(i);
+       Intent i  = new Intent(this, NumeroHimno.class);
+       startActivity(i);
 
 
 
@@ -38,8 +38,8 @@ public class Inicio extends AppCompatActivity {
     }
 
     public void nombreAutor(View view){
-       // Intent i = new Intent(this, NombreAutor.class );
-        //startActivity(i);
+        Intent i = new Intent(this, NombreAutor.class );
+        startActivity(i);
     }
 
 }
