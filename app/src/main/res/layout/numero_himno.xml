@@ -35,11 +35,30 @@
         android:layout_marginRight="12dp"
         android:background="@drawable/estiloboton"
         android:drawableStart="@drawable/ic_busc_cod"
+        android:drawableLeft="@drawable/ic_buscar"
         android:drawablePadding="5dp"
         android:fontFamily="sans-serif-black"
         android:hint="Ingrese el numero a buscar"
         android:inputType="textPersonName"
-        android:paddingLeft="25dp"
-        android:drawableLeft="@drawable/ic_buscar" />
+        android:paddingLeft="25dp" />
+
+    <Button
+        android:id="@+id/btn_consultaNumero"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/estiloboton"
+        android:drawableStart="@drawable/ic_buscar"
+        android:drawableLeft="@drawable/ic_buscar"
+        android:fontFamily="serif-monospace"
+        android:paddingLeft="50dp"
+        android:shadowColor="#101063"
+        android:shadowDx="-3"
+        android:shadowDy="0"
+        android:shadowRadius="8"
+        android:text="Consultar"
+        android:textColor="#0A0A0A" />
 
 </LinearLayout>
