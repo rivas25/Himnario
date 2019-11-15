@@ -106,8 +106,32 @@
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 />
 
+            <TextView
+                android:id="@+id/textViewgenero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textViewActor1"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/imageView"
+                android:fontFamily="sans-serif-black"
+                android:text="Genero: "
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="#000000" />
 
-
+            <TextView
+                android:id="@+id/textViewgenero1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textViewgenero"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="1dp"
+                android:layout_toRightOf="@id/imageView"
+                android:fontFamily="sans-serif-black"
+                android:background="#BEB48847"
+                android:paddingLeft="50dp"
+                android:text="Rock"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="#000000"/>
 
         </RelativeLayout>
 
