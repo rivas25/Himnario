@@ -7,4 +7,23 @@
     android:background="@drawable/fon4"
     tools:context="com.example.proyecto.NumeroHimno">
 
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Himnario"
+        android:textAlignment="center"
+        android:textColor="#110E0E"
+        android:textSize="26dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="125dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/estilo" />
+
 </LinearLayout>
