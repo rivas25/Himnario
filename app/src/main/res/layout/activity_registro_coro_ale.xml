@@ -4,4 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ListView
+        android:id="@+id/lvDatosale"
+        android:layout_width="match_parent"
+        android:layout_height="1000dp"
+        android:layout_marginTop="15dp"
+        />
+
 </LinearLayout>
