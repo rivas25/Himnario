@@ -75,3 +75,23 @@ public class CorosAdoActivity extends AppCompatActivity {
             }
         });
     }
+    private  void agregarCoros(CorosAdo a){
+        String url = "https://appmovilgamez.000webhostapp.com/agregarca.php?";
+        String parametros = "titulo="+a.getTitulo()+"&autor="+a.getAutor()+"&letra="+a.getLetra();
+        clienteca.post(url + parametros, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                if (statusCode == 200){
+                    Toast.makeText(CorosAdoActivity.this, "Coro agregada correctamente", Toast.LENGTH_SHORT).show();
+                    ettituloca.setText("");
+                    etautorca.setText("");
+                    etletraca.setText("");
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+            }
+        });
+    }
