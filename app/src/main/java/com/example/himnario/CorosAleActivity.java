@@ -22,27 +22,26 @@ import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
-public class CorosAdoActivity extends AppCompatActivity {
-
-    private EditText ettituloca, etautorca, etletraca;
-    private Button btnRegistrarca;
-    private ListView lvdatosca;
-    private AsyncHttpClient clienteca = new AsyncHttpClient();
+public class CorosAleActivity extends AppCompatActivity {
+    private EditText ettitulocal, etautorcal, etletracal;
+    private Button btnRegistrarcal;
+    private ListView lvdatoscal;
+    private AsyncHttpClient clientecal = new AsyncHttpClient();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_coros_ado);
+        setContentView(R.layout.activity_coros_ale);
 
-        ettituloca = findViewById(R.id.ettituloca);
-        etautorca = findViewById(R.id.etautorca);
-        etletraca = findViewById(R.id.etletraca);
+        ettitulocal = findViewById(R.id.ettituloal);
+        etautorcal = findViewById(R.id.etautoral);
+        etletracal = findViewById(R.id.etletraal);
 
-        btnRegistrarca = findViewById(R.id.btnRegistrarca);
+        btnRegistrarcal = findViewById(R.id.btnRegistraral);
 
-        lvdatosca = findViewById(R.id.lvDatosRCADO);
+        lvdatoscal = findViewById(R.id.lvDatosale);
 
-        clienteca = new AsyncHttpClient();
+        clientecal = new AsyncHttpClient();
 
         almacenarCoros();
 
@@ -50,20 +49,20 @@ public class CorosAdoActivity extends AppCompatActivity {
     }
 
     private void almacenarCoros() {
-        btnRegistrarca.setOnClickListener(new View.OnClickListener() {
+        btnRegistrarcal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ettituloca.getText().toString().length()== 0 )  {
-                    ettituloca.setError("Campo Obligatorio");
-                }else if (etautorca.getText().toString().length()== 0){
-                    etautorca.setError("Campo Obligatorio");
-                }else  if (etletraca.getText().toString().length()== 0){
-                    etletraca.setError("Campo Obligatorio");
+                if (ettitulocal.getText().toString().length()== 0 )  {
+                    ettitulocal.setError("Campo Obligatorio");
+                }else if (etautorcal.getText().toString().length()== 0){
+                    etautorcal.setError("Campo Obligatorio");
+                }else  if (etletracal.getText().toString().length()== 0){
+                    etletracal.setError("Campo Obligatorio");
                 }else{
-                    CorosAdo a = new CorosAdo();
-                    a.setTitulo(ettituloca.getText().toString().replaceAll(" ", "%20"));
-                    a.setAutor(etautorca.getText().toString().replaceAll(" ", "%20"));
-                    a.setLetra(etletraca.getText().toString().replaceAll(" ", "%20"));
+                    CorosAle a = new CorosAle();
+                    a.setTitulo(ettitulocal.getText().toString().replaceAll(" ", "%20"));
+                    a.setAutor(etautorcal.getText().toString().replaceAll(" ", "%20"));
+                    a.setLetra(etletracal.getText().toString().replaceAll(" ", "%20"));
 
                     agregarCoros(a);
                     try {
@@ -77,17 +76,17 @@ public class CorosAdoActivity extends AppCompatActivity {
         });
     }
 
-    private  void agregarCoros(CorosAdo a){
-        String url = "https://appmovilgamez.000webhostapp.com/agregarca.php?";
+    private  void agregarCoros(CorosAle a){
+        String url = "https://appmovilgamez.000webhostapp.com/agregarale.php?";
         String parametros = "titulo="+a.getTitulo()+"&autor="+a.getAutor()+"&letra="+a.getLetra();
-        clienteca.post(url + parametros, new AsyncHttpResponseHandler() {
+        clientecal.post(url + parametros, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if (statusCode == 200){
-                    Toast.makeText(CorosAdoActivity.this, "Coro agregada correctamente", Toast.LENGTH_SHORT).show();
-                    ettituloca.setText("");
-                    etautorca.setText("");
-                    etletraca.setText("");
+                    Toast.makeText(CorosAleActivity.this, "Coro agregada correctamente", Toast.LENGTH_SHORT).show();
+                    ettitulocal.setText("");
+                    etautorcal.setText("");
+                    etletracal.setText("");
                 }
             }
 
@@ -101,8 +100,8 @@ public class CorosAdoActivity extends AppCompatActivity {
 
 
     private void obtenerCoros(){
-        String url = "https://appmovilgamez.000webhostapp.com/obtenerCoroA.php";
-        clienteca.post(url, new AsyncHttpResponseHandler() {
+        String url = "https://appmovilgamez.000webhostapp.com/obtenerCoroAle.php";
+        clientecal.post(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if (statusCode == 200){
@@ -118,12 +117,12 @@ public class CorosAdoActivity extends AppCompatActivity {
     }
 
     private  void listarCoros(String respuesta){
-        final ArrayList<CorosAdo> listar = new ArrayList<CorosAdo>();
+        final ArrayList<CorosAle> listar = new ArrayList<CorosAle>();
         try{
             JSONArray jsonArreglo = new JSONArray(respuesta);
             for (int i=0; i<jsonArreglo.length(); i++){
-                CorosAdo a = new CorosAdo();
-                a.setId(jsonArreglo.getJSONObject(i).getInt("id_ca"));
+                CorosAle a = new CorosAle();
+                a.setId(jsonArreglo.getJSONObject(i).getInt("id_cale"));
                 a.setTitulo(jsonArreglo.getJSONObject(i).getString("titulo"));
                 a.setAutor(jsonArreglo.getJSONObject(i).getString("autor"));
                 a.setLetra(jsonArreglo.getJSONObject(i).getString("letra"));
@@ -132,21 +131,21 @@ public class CorosAdoActivity extends AppCompatActivity {
 
             }
 
-            ArrayAdapter<CorosAdo> a = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, listar);
-            lvdatosca.setAdapter(a);
+            ArrayAdapter<CorosAle> a = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, listar);
+            lvdatoscal.setAdapter(a);
 
-            lvdatosca.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            lvdatoscal.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                 @Override
                 public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
-                    CorosAdo a = listar.get(position);
-                    String url = "https://appmovilgamez.000webhostapp.com/eliminarca.php?id_ca="+a.getId();
+                    CorosAle a = listar.get(position);
+                    String url = "https://appmovilgamez.000webhostapp.com/eliminarale.php?id_cale="+a.getId();
 
-                    clienteca.post(url, new AsyncHttpResponseHandler() {
+                    clientecal.post(url, new AsyncHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                             if (statusCode == 200){
-                                Toast.makeText(CorosAdoActivity.this, "Coro liminado Correctamente", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(CorosAleActivity.this, "Coro liminado Correctamente", Toast.LENGTH_SHORT).show();
                                 try {
                                     Thread.sleep(2000);
                                 } catch (InterruptedException e) {
@@ -167,17 +166,17 @@ public class CorosAdoActivity extends AppCompatActivity {
             });
 
 
-            lvdatosca.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            lvdatoscal.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    CorosAdo a = listar.get(position);
+                    CorosAle a = listar.get(position);
                     StringBuffer b = new StringBuffer();
                     b.append("ID: " + a.getId() + "\n");
                     b.append("TITULO: " + a.getTitulo() + "\n");
                     b.append("AUTOR: " + a.getTitulo() + "\n");
                     b.append("LETRA: " + a.getLetra() + "\n");
 
-                    AlertDialog.Builder al = new AlertDialog.Builder(CorosAdoActivity.this);
+                    AlertDialog.Builder al = new AlertDialog.Builder(CorosAleActivity.this);
                     al.setCancelable(true);
                     al.setTitle("Detalle");
                     al.setMessage(a.tostring());
@@ -197,8 +196,8 @@ public class CorosAdoActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void registroC(View view) {
-        Intent intent = new Intent(this, registro_coroado.class);
+    public void coro_ale(View view) {
+        Intent intent = new Intent(this, registro_coro_ale.class);
         startActivity(intent);
     }
 }
