@@ -6,7 +6,6 @@ import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.proyecto.Inicio;
 import com.example.proyecto.R;
 
 public class SplashScreen extends AppCompatActivity {
