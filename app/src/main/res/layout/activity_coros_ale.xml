@@ -19,5 +19,29 @@
         />
 
 
+    <EditText
+        android:id="@+id/ettituloal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="15dp"
+        android:hint="Título"
+        android:background="@drawable/etestilo"
+        android:inputType="text"
+        android:layout_marginTop="15dp"
+        />
+
+    <EditText
+        android:id="@+id/etautoral"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="15dp"
+        android:hint="Autor"
+        android:layout_marginTop="10dp"
+        android:inputType="text"
+        android:background="@drawable/etestilo"/>
+
+
 
 </LinearLayout>
