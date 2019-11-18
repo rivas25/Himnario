@@ -47,4 +47,6 @@ public class CorosAdoActivity extends AppCompatActivity {
         //obtenerCoros();
     }
 
+    public void coro_ale(View view) {
+    }
 }
