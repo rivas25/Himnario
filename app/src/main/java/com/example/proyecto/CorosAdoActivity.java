@@ -95,3 +95,19 @@ public class CorosAdoActivity extends AppCompatActivity {
             }
         });
     }
+    private void obtenerCoros(){
+        String url = "https://appmovilgamez.000webhostapp.com/obtenerCoroA.php";
+        clienteca.post(url, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                if (statusCode == 200){
+                    listarCoros(new String(responseBody));
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+            }
+        });
+    }
