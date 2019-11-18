@@ -48,3 +48,30 @@ public class CorosAdoActivity extends AppCompatActivity {
 
         obtenerCoros();
     }
+    private void almacenarCoros() {
+        btnRegistrarca.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ettituloca.getText().toString().length()== 0 )  {
+                    ettituloca.setError("Campo Obligatorio");
+                }else if (etautorca.getText().toString().length()== 0){
+                    etautorca.setError("Campo Obligatorio");
+                }else  if (etletraca.getText().toString().length()== 0){
+                    etletraca.setError("Campo Obligatorio");
+                }else{
+                    CorosAdo a = new CorosAdo();
+                    a.setTitulo(ettituloca.getText().toString().replaceAll(" ", "%20"));
+                    a.setAutor(etautorca.getText().toString().replaceAll(" ", "%20"));
+                    a.setLetra(etletraca.getText().toString().replaceAll(" ", "%20"));
+
+                    agregarCoros(a);
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    obtenerCoros();
+                }
+            }
+        });
+    }
