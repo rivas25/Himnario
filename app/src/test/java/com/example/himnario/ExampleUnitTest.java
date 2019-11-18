@@ -1,4 +1,4 @@
-package com.example.proyecto;
+package com.example.himnario;
 
 import org.junit.Test;
 

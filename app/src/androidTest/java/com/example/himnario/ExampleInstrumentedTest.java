@@ -1,4 +1,4 @@
-package com.example.proyecto;
+package com.example.himnario;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.example.proyecto", appContext.getPackageName());
+        assertEquals("com.example.himnario", appContext.getPackageName());
     }
 }
